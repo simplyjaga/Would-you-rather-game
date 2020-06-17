@@ -2,8 +2,6 @@
 import produce from "immer";
 
 // action types
-
-const INITIAL_DATA='setInitialUsersData';
 const ADD_ANSWER='addAnswer';
 const ADD_QUESTION='addQuestion';
 
@@ -15,10 +13,6 @@ export const addAnswer=(authUser,questionId,option)=>({
     questionId
 });
 
-export const setInitialData = (state)=>({
-   type:INITIAL_DATA,
-   state
-});
 
 export const addQuestion=(authUser,questionId)=>({
   type:ADD_QUESTION,
@@ -26,13 +20,11 @@ export const addQuestion=(authUser,questionId)=>({
   authUser
 });
 
-// reducers
 
+// reducers
 export const users=(state={},action)=>{
 
     switch(action.type){
-        case INITIAL_DATA:
-            return action.state;
 
         case ADD_ANSWER:
 
@@ -48,7 +40,7 @@ export const users=(state={},action)=>{
         case ADD_QUESTION:
 
             return produce(state,(draftState)=>{
-                draftState[action.authUser].questions.push(action.question.id);
+                draftState[action.authUser].questions.push(action.questionId);
             });
         
         default:
