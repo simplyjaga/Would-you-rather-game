@@ -2,11 +2,11 @@
 import produce from "immer";
 
 // action types
-const ADD_ANSWER='addAnswer';
-const ADD_QUESTION='addQuestion';
+const ADD_ANSWER='addAnswerToUsers';
+const ADD_QUESTION='addQuestionToUsers';
 
 //action creators
-export const addAnswer=(authUser,questionId,option)=>({
+export const addAnswerToUsers=(authUser,questionId,option)=>({
     type:ADD_ANSWER,
     authUser,
     option,
@@ -14,7 +14,7 @@ export const addAnswer=(authUser,questionId,option)=>({
 });
 
 
-export const addQuestion=(authUser,questionId)=>({
+export const addQuestionToUsers=(authUser,questionId)=>({
   type:ADD_QUESTION,
   questionId,
   authUser
@@ -22,6 +22,8 @@ export const addQuestion=(authUser,questionId)=>({
 
 
 // reducers
+
+
 export const users=(state={},action)=>{
 
     switch(action.type){
