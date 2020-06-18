@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { addAnswerToUsers } from '../store/users';
+import {addAnswerToQuestions} from '../store/questions';
 
 function checkIsAnswered(users,userId,questionId){
     const answers=users[userId].answers;
@@ -10,13 +12,20 @@ function checkIsAnswered(users,userId,questionId){
     return false;
 }
 
+
 function Question(props){
-    const {users,questions}=props;
+    const {users,questions,dispatch,authUser}=props;
     const userId= props.match.params.userId;
     const questionId = props.match.params.questionId;
     const isAnswered=checkIsAnswered(users,userId,questionId);
-    if(isAnswered){
 
+    const addAnswer=(e)=>{
+        const option=e.target.getAttribute('value');
+        dispatch(addAnswerToUsers(authUser,questionId,option));
+        dispatch(addAnswerToQuestions(authUser,questionId,option));
+     }
+
+    if(isAnswered){
         return(
           <div>
               <h6>A : {questions[questionId].optionOne.text}</h6>
@@ -30,12 +39,16 @@ function Question(props){
         );
     }
     return(
-          <h2>Not answered......</h2>
-    );
+        <div>
+            <h6 onClick={addAnswer} value='optionOne' >A : {questions[questionId].optionOne.text}</h6>
+            <h6 onClick={addAnswer} value='optionTwo' >B : {questions[questionId].optionTwo.text}</h6>
+        </div>
+      );
 }
 
 const mapStateToProps = (state)=>{
     return{
+      authUser:state.authUser,
       users:state.users,
       questions:state.questions
     }

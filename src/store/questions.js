@@ -8,7 +8,7 @@ const ADD_INITIAL_DATA='addInitialDataToquestions';
 
 // action creators
 
-export const addAnswerToQuestions=(authUser,option,questionId)=>({
+export const addAnswerToQuestions=(authUser,questionId,option)=>({
     type:ADD_ANSWER,
     authUser,
     option,
