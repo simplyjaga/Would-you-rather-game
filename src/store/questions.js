@@ -27,7 +27,7 @@ export const addInitialDatatoquestions=(questions)=>({
     questions
 })
 
-// action
+// async  action
 
 export const getQuestions=()=>{
 
@@ -39,6 +39,21 @@ export const getQuestions=()=>{
     }
 
 }
+export const addQuestionToserver=(authUser,optionOne,optionTwo)=>{
+    
+    const question={
+        optionOneText:optionOne,
+        optionTwoText:optionTwo,
+        author:authUser
+    }
+
+    return (dispatch)=>{
+        API._saveQuestion(question)
+        .then((res)=>{
+            dispatch(addQuestionToQuestions(res));
+        })
+    }
+} 
 
 // reducers
 

@@ -26,7 +26,7 @@ export const addInitialDataToUsers=(users)=>({
     users
 })
 
-// action
+// async action
 
 export const getUsers=()=>{
      return (dispatch)=>{
@@ -36,6 +36,19 @@ export const getUsers=()=>{
                 })
      }
 }
+export const addAnswerToServer=(authUser,questionId,option)=>{
+    const answer={
+        authedUser:authUser,
+        qid:questionId,
+        answer:option
+    }
+    return (dispatch)=>{
+        API._saveQuestionAnswer(answer)
+        .then(()=>{
+            dispatch(addAnswerToUsers(authUser,questionId,option))
+        })
+    }
+} 
 
 // reducers
 

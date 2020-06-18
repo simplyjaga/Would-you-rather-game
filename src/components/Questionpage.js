@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { addAnswerToUsers } from '../store/users';
+import {addAnswerToServer } from '../store/users';
 import {addAnswerToQuestions} from '../store/questions';
 
 function checkIsAnswered(users,userId,questionId){
@@ -21,7 +21,7 @@ function Question(props){
 
     const addAnswer=(e)=>{
         const option=e.target.getAttribute('value');
-        dispatch(addAnswerToUsers(authUser,questionId,option));
+        dispatch(addAnswerToServer(authUser,questionId,option));
         dispatch(addAnswerToQuestions(authUser,questionId,option));
      }
 

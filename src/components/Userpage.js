@@ -2,6 +2,7 @@ import React from 'react';
 import Answered from './Answered';
 import Unanswered from './Unanswered';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 
@@ -23,10 +24,12 @@ function Userpage(props){
     const UnAnsweredQuestions=unAnsweredIds.map((id)=>{
         return questions[id]
     })
+     
 
     return(
           <div>
                name :  {users[userId].name}
+               <button>  <Link to={`/${userId}/addQuestion`}>Add Question</Link> </button>
                <hr style={{borderWidth:'5px'}}/>
               <Answered  questions={answeredQuestions} userid={userId}/>
               <hr style={{borderWidth:'5px'}}/>
