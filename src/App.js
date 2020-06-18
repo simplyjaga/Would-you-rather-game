@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import Login from './components/Login';
 import Userpage from './components/Userpage'
 import { Route, Switch } from 'react-router-dom';
+import Question from './components/Question';
 
  class App extends Component{
 
@@ -20,9 +21,7 @@ import { Route, Switch } from 'react-router-dom';
           <Switch>
           <Route exact path ='/' component={Login}/>
           <Route exact path ='/:userId' component={Userpage}/>
-          <Route exact path ='/:userId/:a' render={(props)=>{
-            return <h1>hello</h1>
-          }}/>
+          <Route exact path ='/:userId/:questionId' component={Question} />
           </Switch>
          </div>
       );
