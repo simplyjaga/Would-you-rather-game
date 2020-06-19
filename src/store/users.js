@@ -9,7 +9,7 @@ const ADD_INITIAL_DATA='addInitialDataToUsers';
 //action creators
 export const addAnswerToUsers=(authUser,questionId,option)=>({
     type:ADD_ANSWER,
-    authUser,
+    authUser, 
     option,
     questionId
 });
@@ -36,19 +36,6 @@ export const getUsers=()=>{
                 })
      }
 }
-export const addAnswerToServer=(authUser,questionId,option)=>{
-    const answer={
-        authedUser:authUser,
-        qid:questionId,
-        answer:option
-    }
-    return (dispatch)=>{
-        API._saveQuestionAnswer(answer)
-        .then(()=>{
-            dispatch(addAnswerToUsers(authUser,questionId,option))
-        })
-    }
-} 
 
 // reducers
 

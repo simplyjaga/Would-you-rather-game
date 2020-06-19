@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addQuestionToserver } from '../store/questions';
+import { addQuestionToStoreAndServer } from '../store/combinedActions';
 
 class Addquestionpage extends Component{
 
@@ -26,7 +26,7 @@ class Addquestionpage extends Component{
         const {dispatch,authUser}=this.props;
         const optionOne=this.state.optionOne;
         const optionTwo=this.state.optionTwo;
-        dispatch(addQuestionToserver(authUser,optionOne,optionTwo));
+        dispatch(addQuestionToStoreAndServer(authUser,optionOne,optionTwo));
     }
 
     render(){
