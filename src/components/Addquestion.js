@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addQuestionToStoreAndServer } from '../store/combinedActions';
 
-class Addquestionpage extends Component{
+class Addquestion extends Component{
 
     state={
         optionOne:'',
@@ -27,12 +27,17 @@ class Addquestionpage extends Component{
         const optionOne=this.state.optionOne;
         const optionTwo=this.state.optionTwo;
         dispatch(addQuestionToStoreAndServer(authUser,optionOne,optionTwo));
+        this.setState({
+            optionOne:'',
+            optionTwo:''
+        })
     }
 
     render(){
         const {authUser}=this.props;
         return(
         <div>
+          <h4>Addquestion</h4>
           <div class="form-group">
             <label for="Option One">Option A</label>
             <textarea class="form-control" value={this.state.optionOne} onChange={this.setOptionOne} id="Option One" rows="2"></textarea>
@@ -52,4 +57,4 @@ const mapStateToProps = (state)=>{
     }
   }
   
-  export default connect(mapStateToProps)(Addquestionpage);
+  export default connect(mapStateToProps)(Addquestion);

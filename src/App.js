@@ -6,7 +6,6 @@ import Login from './components/Login';
 import Userpage from './components/Userpage'
 import { Route, Switch } from 'react-router-dom';
 import Questionpage from './components/Questionpage';
-import Addquestionpage from './components/Addquestionpage';
 
  class App extends Component{
 
@@ -22,7 +21,6 @@ import Addquestionpage from './components/Addquestionpage';
           <Switch>
           <Route exact path ='/' component={Login}/>
           <Route exact path ='/:userId' component={Userpage}/>
-          <Route exact path ='/:userId/addQuestion' component={Addquestionpage}/>
           <Route exact path ='/:userId/:questionId' component={Questionpage} />
           </Switch>
          </div>

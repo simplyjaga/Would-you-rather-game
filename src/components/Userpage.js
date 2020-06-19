@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import Leaderboard from './Leaderboard';
 import { logOut } from '../store/authUser';
+import Addquestion from './Addquestion';
 
 
 
@@ -34,7 +35,7 @@ function Userpage(props){
     return(
           <div>
                name :  {users[userId].name}
-               <button>  <Link to={`/${userId}/addQuestion`}>Add Question</Link> </button>
+               
                <button onClick={logOutUser}>  <Link to='/'>Log Out</Link> </button>
                <hr style={{borderWidth:'5px'}}/>
               <Answered  questions={answeredQuestions} userid={userId}/>
@@ -42,6 +43,8 @@ function Userpage(props){
               <Unanswered  questions={UnAnsweredQuestions} userid={userId}/>
               <hr style={{borderWidth:'5px'}}/>
               <Leaderboard />
+              <hr style={{borderWidth:'5px'}}/>
+               <Addquestion/>
               <hr style={{borderWidth:'5px'}}/>
           </div>
     );
