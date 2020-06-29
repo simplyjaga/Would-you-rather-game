@@ -13,13 +13,15 @@ function Login(props){
   }
 
   return(
-      <div >
-             {usersIds.map((id)=>(
-                 <Link to={`/${id}`} key={id} value={id} onClick={setAuthUser}> {users[id].name} </Link>
-               ))}
-      
-       
+      <div className='login-page'>
+          <div className='login-div'>
+                <h3 className='welcome-note'>Welcome Back !</h3>
+                  {usersIds.map((id)=>(
+                      <Link to={`/${id}`} key={id} value={id} onClick={setAuthUser} className='user-login-link'> {users[id].name} </Link>
+                    ))}
+            </div>
       </div>
+      
   );
 }
 

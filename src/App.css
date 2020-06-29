@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+
+a{
+  color:black;
+  font-family: 'Ubuntu', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a:hover{
+  text-decoration: none;
+  color:black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login-page{
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: rgba(51, 170, 51, .1) 
 }
 
-.App-link {
-  color: #61dafb;
+.login-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1% ;
+  background: linear-gradient(rgba(38, 245, 252, 0.76),rgba(56, 252, 38,.05));
+  border-radius: 5%;
+  width: 250px;
+  height: 350px;
+  -webkit-box-shadow: 3px 2px 15px -1px rgba(0,0,0,0.77);
+  -moz-box-shadow: 3px 2px 15px -1px rgba(0,0,0,0.77);
+  box-shadow: 3px 2px 15px -1px rgba(0,0,0,0.77);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.user-login-link{
+  border: 2px solid rgb(205, 247, 243);
+  border-radius: 20px;
+  padding: 5%;
+  margin: 5%;
+  font-weight: 600;
+  text-align: center;
 }
+.user-login-link:hover{
+  border: 2px solid rgb(29, 158, 145);
+}
+
+
+.welcome-note{
+  color: rgba(2, 51, 40, 0.637);
+  font-family: 'Gochi Hand', cursive;
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+

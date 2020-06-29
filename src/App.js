@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Userpage from './components/Userpage'
 import { Route, Switch } from 'react-router-dom';
 import Questionpage from './components/Questionpage';
+import './App.css';
 
  class App extends Component{
 
@@ -16,6 +17,7 @@ import Questionpage from './components/Questionpage';
   }
 
   render(){
+     const{authUser}=this.props;
      return (
          <div>
           <Switch>
