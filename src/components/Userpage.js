@@ -52,15 +52,10 @@ function Userpage(props){
                     <div>
                       <Answered  questions={answeredQuestions} userid={userId}/>
                       <Unanswered  questions={UnAnsweredQuestions} userid={userId}/>
+                      <Leaderboard />
+                       <Addquestion/>
                     </div>
-             </div>
-
-              
-             
-              <hr style={{borderWidth:'5px'}}/>
-              <Leaderboard />
-              <hr style={{borderWidth:'5px'}}/>
-               <Addquestion/>
+             </div> 
               <hr style={{borderWidth:'5px'}}/>
           </div>
     );

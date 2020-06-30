@@ -18,8 +18,8 @@ function Answered(props){
               <div className='question-item-div'>
                 <h6 className='author-name'>{`Author : ${q.author}`}</h6>
                 <h6 className='date'>Time : {getFormattedDate(q.timestamp)}</h6>
-                <h6 className='option-one'> OptionOne : {q.optionOne.text} </h6>
-                <h6 className='option-two'> OptionTwo : {q.optionTwo.text} </h6>
+                <h6 className='option-one'> Option A : {q.optionOne.text} </h6>
+                <h6 className='option-two'> Option B : {q.optionTwo.text} </h6>
               </div>
               </Link>
             ))}

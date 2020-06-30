@@ -36,15 +36,15 @@ class Addquestion extends Component{
     render(){
         const {authUser}=this.props;
         return(
-        <div>
-          <h4>Addquestion</h4>
-          <div class="form-group">
-            <label for="Option One">Option A</label>
-            <textarea class="form-control" value={this.state.optionOne} onChange={this.setOptionOne} id="Option One" rows="2"></textarea>
-            <label for="Option Two">Option B</label>
-            <textarea class="form-control" value={this.state.optionTwo} onChange={this.setOptionTwo} id="Option Two" rows="2"></textarea>
+        <div className='add-question-container'>
+          <h4 className='tab-name'>Addquestion</h4>
+          <div className="form-group">
+            <label htmlFor="Option One">Option A</label>
+            <textarea className="form-control" value={this.state.optionOne} onChange={this.setOptionOne} id="Option One" rows="2"></textarea>
+            <label htmlFor="Option Two">Option B</label>
+            <textarea className="form-control" value={this.state.optionTwo} onChange={this.setOptionTwo} id="Option Two" rows="2"></textarea>
           </div>
-          <button onClick={this.addQuestion}><Link to={`/${authUser}`}>Submit</Link></button>
+          <button className='btn  btn-success' onClick={this.addQuestion}><Link to={`/${authUser}`}>Submit</Link></button>
         </div> 
         );
     }
