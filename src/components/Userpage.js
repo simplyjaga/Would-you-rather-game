@@ -2,17 +2,15 @@ import React from 'react';
 import Answered from './Answered';
 import Unanswered from './Unanswered';
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom';
 import Leaderboard from './Leaderboard';
-import { logOut } from '../store/authUser';
 import Addquestion from './Addquestion';
-
+import Userbar from './Userbar';
 
 
 function Userpage(props){
 
     const userId=props.match.params.userId;
-    const {users,questions,dispatch}=props;
+    const {users,questions}=props;
 
     const questionsIds=Object.keys(questions);
     const answeredObj=users[userId].answers;
@@ -28,20 +26,10 @@ function Userpage(props){
     const UnAnsweredQuestions=unAnsweredIds.map((id)=>{
         return questions[id]
     })
-     
-    const logOutUser=()=>{
-        dispatch(logOut());
-    }
 
     return(
           <div>
-
-             <div className='user-bar'>
-                <div className='user-name'> {users[userId].name} </div>
-                <h3 className='title'>Would You Rather ?</h3>
-                 <Link to='/' onClick={logOutUser} className='log-out'>Log Out</Link>
-             </div>
-
+             <Userbar userId={userId}/>
              <div className='nav-div'>
                     <div className='nav-bar' >
                         <div className='nav-item'> <button className='btn btn-outline-primary'> Answered </button></div>
@@ -56,7 +44,6 @@ function Userpage(props){
                        <Addquestion/>
                     </div>
              </div> 
-              <hr style={{borderWidth:'5px'}}/>
           </div>
     );
 }

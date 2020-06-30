@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addAnswerToStoreAndServer} from '../store/combinedActions';
+import Userbar from './Userbar';
 
 function checkIsAnswered(users,userId,questionId){
     const answers=users[userId].answers;
@@ -25,21 +26,27 @@ function Question(props){
 
     if(isAnswered){
         return(
-          <div>
-              <h6>A : {questions[questionId].optionOne.text}</h6>
-              <h6>B : {questions[questionId].optionTwo.text}</h6>
-              <h6>Your answer : 
-              {users[userId].answers[questionId] === 'optionOne' ? ' A' : ' B'}
-              </h6>
-              <h6>Number of people chose A {questions[questionId].optionOne.votes.length}</h6>
-              <h6>Number of people chose B {questions[questionId].optionTwo.votes.length}</h6>
-          </div>
+            <div>
+                 <Userbar userId={userId}/>
+                <div>
+                    <h6>A : {questions[questionId].optionOne.text}</h6>
+                    <h6>B : {questions[questionId].optionTwo.text}</h6>
+                    <h6>Your answer : 
+                    {users[userId].answers[questionId] === 'optionOne' ? ' A' : ' B'}
+                    </h6>
+                    <h6>Number of people chose A {questions[questionId].optionOne.votes.length}</h6>
+                    <h6>Number of people chose B {questions[questionId].optionTwo.votes.length}</h6>
+                </div>
+           </div>
         );
     }
     return(
         <div>
-            <h6 onClick={addAnswer} value='optionOne' >A : {questions[questionId].optionOne.text}</h6>
-            <h6 onClick={addAnswer} value='optionTwo' >B : {questions[questionId].optionTwo.text}</h6>
+            <Userbar userId={userId}/>
+            <div>
+                <h6 onClick={addAnswer} value='optionOne' >A : {questions[questionId].optionOne.text}</h6>
+                <h6 onClick={addAnswer} value='optionTwo' >B : {questions[questionId].optionTwo.text}</h6>
+            </div>
         </div>
       );
 }

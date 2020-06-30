@@ -44,7 +44,7 @@ class Addquestion extends Component{
             <label htmlFor="Option Two">Option B</label>
             <textarea className="form-control" value={this.state.optionTwo} onChange={this.setOptionTwo} id="Option Two" rows="2"></textarea>
           </div>
-          <button className='btn  btn-success' onClick={this.addQuestion}><Link to={`/${authUser}`}>Submit</Link></button>
+          <button className='btn  btn-success' onClick={this.addQuestion}><Link className='submit-btn' to={`/${authUser}`}>Submit</Link></button>
         </div> 
         );
     }

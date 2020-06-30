@@ -185,3 +185,7 @@ a:hover{
   font-weight: 600;
 }
 
+
+.submit-btn:hover , .submit-btn{
+  color:whitesmoke;
+}

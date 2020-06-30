@@ -37,7 +37,7 @@ function Leaderboard (props){
                    <h6 className='author-name'>{users[obj.id].name} </h6>
                    <h6 className='score'>  Score :  { obj.score} </h6>
                    <h6 className='rank'>{index+1}</h6>
-                   <h6 className='question-stat'>Questions Asked    : {questionsAsked(users[obj.id].questions)}</h6>
+                   <h6 className='question-stat'>Questions Asked  : {questionsAsked(users[obj.id].questions)}</h6>
                    <h6 className='question-stat'>Questions Answered : {questionsAnswered(users[obj.id].answers)} </h6>
                 </div> 
              ))}
