@@ -52,7 +52,7 @@ function Question(props){
                     {users[userId].answers[questionId] === 'optionOne' ? ' A' : ' B'}
                     </h6>
                     <hr/>
-                    
+
                     <div className='percent-div'>
                         <h6>People chose A : {percentForA(votesForA,votesForB)} %</h6>
                         <h6>People chose B : {percentForB(votesForA,votesForB)} %</h6>
@@ -65,9 +65,22 @@ function Question(props){
     return(
         <div>
             <Userbar userId={userId}/>
-            <div>
-                <h6 onClick={addAnswer} value='optionOne' >A : {questions[questionId].optionOne.text}</h6>
-                <h6 onClick={addAnswer} value='optionTwo' >B : {questions[questionId].optionTwo.text}</h6>
+            <div className='question-div'> 
+                <h6 className='author-name'>{`Author : ${users[authorId].name}`}</h6>
+                <div className='option-div-unanswered'>
+                    <div>
+                        <h6 className='option-A'> 
+                            <div className='input-div'><input type="radio" onClick={addAnswer} value='optionOne'/></div>
+                             A : {questions[questionId].optionOne.text}
+                        </h6>
+                    </div>
+                    <div>
+                        <h6 className='option-B'> 
+                            <div className='input-div'><input type="radio" onClick={addAnswer} value='optionTwo'/></div>
+                            B : {questions[questionId].optionTwo.text}
+                         </h6>
+                    </div>
+                </div>
             </div>
         </div>
       );

@@ -191,10 +191,11 @@ a:hover{
 }
 
 /* question page  */
+/* answered question */
 
 .question-div{
   position: relative;
-  width: 70%;
+  width: 60%;
   left: 15%;
   border:1px solid red;
   margin:3%;
@@ -221,4 +222,20 @@ hr{
   position: relative;
   right: 25%;
   width:40%;
+}
+
+/* question page  */
+/* unanswered question */
+
+.option-A , .option-B{
+  margin-left: 3%;
+}
+.input-div{
+  display:inline-block;
+  margin-right: 3%;
+}
+
+.option-div-unanswered{
+  margin:2%;
+  padding: 2%;
 }
