@@ -10,6 +10,7 @@ import Addquestion from './Addquestion';
 
 
 function Userpage(props){
+
     const userId=props.match.params.userId;
     const {users,questions,dispatch}=props;
 
@@ -34,13 +35,28 @@ function Userpage(props){
 
     return(
           <div>
-               name :  {users[userId].name}
-               
-               <button onClick={logOutUser}>  <Link to='/'>Log Out</Link> </button>
-               <hr style={{borderWidth:'5px'}}/>
-              <Answered  questions={answeredQuestions} userid={userId}/>
-              <hr style={{borderWidth:'5px'}}/>
-              <Unanswered  questions={UnAnsweredQuestions} userid={userId}/>
+
+             <div className='user-bar'>
+                <div className='user-name'> {users[userId].name} </div>
+                <h3 className='title'>Would You Rather ?</h3>
+                 <Link to='/' onClick={logOutUser} className='log-out'>Log Out</Link>
+             </div>
+
+             <div className='nav-div'>
+                    <div className='nav-bar' >
+                        <div className='nav-item'> <button className='btn btn-outline-primary'> Answered </button></div>
+                        <div className='nav-item'>  <button  className='btn btn-outline-primary'> UnAnswered </button></div>
+                        <div className='nav-item'>   <button  className='btn btn-outline-primary'> Leaderboard </button></div> 
+                        <div className='nav-item'>   <button  className='btn btn-outline-primary'> Add Question </button></div>
+                    </div>
+                    <div>
+                      <Answered  questions={answeredQuestions} userid={userId}/>
+                      <Unanswered  questions={UnAnsweredQuestions} userid={userId}/>
+                    </div>
+             </div>
+
+              
+             
               <hr style={{borderWidth:'5px'}}/>
               <Leaderboard />
               <hr style={{borderWidth:'5px'}}/>
