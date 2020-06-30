@@ -12,12 +12,25 @@ function checkIsAnswered(users,userId,questionId){
     return false;
 }
 
+function percentForA(aVotes,bVotes){
+    let percent= (aVotes/(aVotes+bVotes))*100
+    return percent.toFixed(2);
+}
+
+function percentForB(aVotes,bVotes){
+    let percent= (bVotes/(aVotes+bVotes))*100
+    return percent.toFixed(2);
+}
 
 function Question(props){
     const {users,questions,dispatch,authUser}=props;
     const userId= props.match.params.userId;
     const questionId = props.match.params.questionId;
+    const authorId=questions[questionId].author;
     const isAnswered=checkIsAnswered(users,userId,questionId);
+
+    const votesForA=questions[questionId].optionOne.votes.length;
+    const votesForB=questions[questionId].optionTwo.votes.length;
 
     const addAnswer=(e)=>{
         const option=e.target.getAttribute('value');
@@ -28,14 +41,23 @@ function Question(props){
         return(
             <div>
                  <Userbar userId={userId}/>
-                <div>
-                    <h6>A : {questions[questionId].optionOne.text}</h6>
-                    <h6>B : {questions[questionId].optionTwo.text}</h6>
-                    <h6>Your answer : 
+                <div className='question-div'>
+                    <h6 className='author-name'>{`Author : ${users[authorId].name}`}</h6>
+                    <div className='option-div'>
+                        <h6>A : {questions[questionId].optionOne.text}</h6>
+                        <h6>B : {questions[questionId].optionTwo.text}</h6>
+                    </div>
+
+                    <h6 className='answer'>Your answer : 
                     {users[userId].answers[questionId] === 'optionOne' ? ' A' : ' B'}
                     </h6>
-                    <h6>Number of people chose A {questions[questionId].optionOne.votes.length}</h6>
-                    <h6>Number of people chose B {questions[questionId].optionTwo.votes.length}</h6>
+                    <hr/>
+                    
+                    <div className='percent-div'>
+                        <h6>People chose A : {percentForA(votesForA,votesForB)} %</h6>
+                        <h6>People chose B : {percentForB(votesForA,votesForB)} %</h6>
+                    </div>
+
                 </div>
            </div>
         );

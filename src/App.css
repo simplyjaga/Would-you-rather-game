@@ -189,3 +189,36 @@ a:hover{
 .submit-btn:hover , .submit-btn{
   color:whitesmoke;
 }
+
+/* question page  */
+
+.question-div{
+  position: relative;
+  width: 70%;
+  left: 15%;
+  border:1px solid red;
+  margin:3%;
+  padding: 1%;
+}
+
+.percent-div , .option-div{
+  width:50%;
+  margin: 3%;
+}
+
+.answer{
+ display: inline-block;
+ position: absolute;
+ right: 3%;
+ top:40%;
+ padding: 1%;
+ border: 2px solid green;
+ border-radius: 40px;
+ text-align: center;
+}
+
+hr{
+  position: relative;
+  right: 25%;
+  width:40%;
+}

@@ -38,8 +38,8 @@ function Userpage(props){
                         <div className='nav-item'>   <button  className='btn btn-outline-primary'> Add Question </button></div>
                     </div>
                     <div>
-                      <Answered  questions={answeredQuestions} userid={userId}/>
-                      <Unanswered  questions={UnAnsweredQuestions} userid={userId}/>
+                      <Answered  questions={answeredQuestions} userId={userId}/>
+                      <Unanswered  questions={UnAnsweredQuestions} userId={userId}/>
                       <Leaderboard />
                        <Addquestion/>
                     </div>
