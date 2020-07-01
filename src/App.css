@@ -76,9 +76,10 @@ a:hover{
 
 .title{
   font-family: 'Vibur', cursive;
+  font-weight: bolder;
   display: inline-block;
   position:absolute;
-  left: 40%;
+  left: 45%;
 }
 
 .log-out{
@@ -93,11 +94,6 @@ a:hover{
 }
 
 
-@media(max-width:540px){
-  .title{
-    left: 30%;
-  }
-}
 
 /* nav-bar */
 .nav-div{
@@ -108,6 +104,7 @@ a:hover{
 
 .nav-bar{
   display:flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -241,4 +238,39 @@ hr{
 
 li {
   list-style-type: none;
+}
+
+/* responsive */
+
+
+@media(max-width:540px){
+  .title{
+    left: 30%;
+  }
+}
+
+@media(max-width:850px){
+
+  
+  .date{
+    display: block;
+    position: static;
+    margin-bottom:2%;
+    padding-left:1%;
+  }
+  .title{
+    font-size: 1.3rem;
+    font-weight: bolder;
+  }
+  .log-out{
+     margin-left: 60%;
+     font-size: 60%;
+  }
+  .answer{
+    top:55%;
+    width: 45%;
+    right: 0.5%;
+  }
+
+
 }

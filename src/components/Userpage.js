@@ -56,7 +56,7 @@ function Userpage(props){
                           <div className='nav-item'> <button className='btn btn-outline-primary' onClick={()=>setTab('answered')}> Answered </button></div>
                           <div className='nav-item'>  <button  className='btn btn-outline-primary' onClick={()=>setTab('unAnswered')}> Unanswered </button></div>
                           <div className='nav-item'>   <button  className='btn btn-outline-primary' onClick={()=>setTab('leaderBoard')}> Leaderboard </button></div> 
-                          <div className='nav-item'>   <button  className='btn btn-outline-primary' onClick={()=>setTab('addQuestion')}> Add Question </button></div>
+                          <div className='nav-item'>   <button  className='btn btn-outline-primary' onClick={()=>setTab('addQuestion')}> AddQuestion </button></div>
                       </div>
                       <div>
                        { showCurrentTab(currentTab,userId,UnAnsweredQuestions,answeredQuestions) }
