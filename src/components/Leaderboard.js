@@ -33,7 +33,7 @@ function Leaderboard (props){
           <div className='leaderboard-container'>
             <h4 className='tab-name'>Leaderboard</h4>
              {sortedUserIdsWithscore.map((obj,index)=>(
-                <div className='user-div'>
+                <div className='user-div' key={obj.id}>
                    <h6 className='author-name'>{users[obj.id].name} </h6>
                    <h6 className='score'>  Score :  { obj.score} </h6>
                    <h6 className='rank'>{index+1}</h6>

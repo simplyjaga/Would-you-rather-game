@@ -26,7 +26,9 @@ class Addquestion extends Component{
         const {dispatch,authUser}=this.props;
         const optionOne=this.state.optionOne;
         const optionTwo=this.state.optionTwo;
-        dispatch(addQuestionToStoreAndServer(authUser,optionOne,optionTwo));
+        if(optionOne.trim() !== '' && optionTwo.trim() !== ''){
+            dispatch(addQuestionToStoreAndServer(authUser,optionOne,optionTwo));
+        }
         this.setState({
             optionOne:'',
             optionTwo:''

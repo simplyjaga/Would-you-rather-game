@@ -1,6 +1,6 @@
 // action types
 
-const AUTH_USER ='authoriseUser';
+const AUTH_USER ='logInUser';
 const LOG_OUT='logOutCurrentUser';
 
 // action creators

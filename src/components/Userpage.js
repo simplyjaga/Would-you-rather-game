@@ -5,51 +5,60 @@ import {connect} from 'react-redux';
 import Leaderboard from './Leaderboard';
 import Addquestion from './Addquestion';
 import Userbar from './Userbar';
+import { Redirect } from 'react-router-dom';
 
 
 function Userpage(props){
 
     const userId=props.match.params.userId;
-    const {users,questions}=props;
+    const {users,questions,authUser}=props;
 
-    const questionsIds=Object.keys(questions);
-    const answeredObj=users[userId].answers;
-    const answeredIds=Object.keys(answeredObj);
+    if(authUser === userId){
+        const questionsIds=Object.keys(questions);
+        const answeredObj=users[userId].answers;
+        const answeredIds=Object.keys(answeredObj);
 
-    const answeredQuestions=answeredIds.map((id)=>{
-        return questions[id]
-    })
-    const unAnsweredIds= questionsIds.filter((id)=>{
-        return !answeredIds.includes(id);
-    })
+        const answeredQuestions=answeredIds.map((id)=>{
+            return questions[id]
+        })
+        const unAnsweredIds= questionsIds.filter((id)=>{
+            return !answeredIds.includes(id);
+        })
 
-    const UnAnsweredQuestions=unAnsweredIds.map((id)=>{
-        return questions[id]
-    })
+        const UnAnsweredQuestions=unAnsweredIds.map((id)=>{
+            return questions[id]
+        })
 
-    return(
-          <div>
-             <Userbar userId={userId}/>
-             <div className='nav-div'>
-                    <div className='nav-bar' >
-                        <div className='nav-item'> <button className='btn btn-outline-primary'> Answered </button></div>
-                        <div className='nav-item'>  <button  className='btn btn-outline-primary'> UnAnswered </button></div>
-                        <div className='nav-item'>   <button  className='btn btn-outline-primary'> Leaderboard </button></div> 
-                        <div className='nav-item'>   <button  className='btn btn-outline-primary'> Add Question </button></div>
-                    </div>
-                    <div>
-                      <Answered  questions={answeredQuestions} userId={userId}/>
-                      <Unanswered  questions={UnAnsweredQuestions} userId={userId}/>
-                      <Leaderboard />
-                       <Addquestion/>
-                    </div>
-             </div> 
-          </div>
-    );
+        return(
+            <div>
+               <Userbar userId={userId}/>
+               <div className='nav-div'>
+                      <div className='nav-bar' >
+                          <div className='nav-item'> <button className='btn btn-outline-primary'> Answered </button></div>
+                          <div className='nav-item'>  <button  className='btn btn-outline-primary'> UnAnswered </button></div>
+                          <div className='nav-item'>   <button  className='btn btn-outline-primary'> Leaderboard </button></div> 
+                          <div className='nav-item'>   <button  className='btn btn-outline-primary'> Add Question </button></div>
+                      </div>
+                      <div>
+                        <Answered  questions={answeredQuestions} userId={userId}/>
+                        <Unanswered  questions={UnAnsweredQuestions} userId={userId}/>
+                        <Leaderboard />
+                         <Addquestion/>
+                      </div>
+               </div> 
+            </div>
+      );
+    }
+
+    if(authUser !== userId){
+       return (<Redirect to='/' />);
+    }
+
 }
 
 const mapStateToProps = (state)=>{
     return{
+       authUser:state.authUser,
        users:state.users,
        questions:state.questions
     }

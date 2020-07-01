@@ -239,3 +239,9 @@ hr{
   margin:2%;
   padding: 2%;
 }
+
+/* for key errors */
+
+li {
+  list-style-type: none;
+}
