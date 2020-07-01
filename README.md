@@ -1,3 +1,7 @@
+## About the game
+Would you rather ? is a game where user can choose any one option from two and see how many others agree with him.
+The user can also add two choices of his own to ask others about it.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
