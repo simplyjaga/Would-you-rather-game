@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Answered from './Answered';
 import Unanswered from './Unanswered';
 import {connect} from 'react-redux';
@@ -8,10 +8,29 @@ import Userbar from './Userbar';
 import { Redirect } from 'react-router-dom';
 
 
+function showCurrentTab(currentTab,userId,UnAnsweredQuestions,answeredQuestions){
+
+    switch (currentTab) {
+        case 'answered':
+            return (<Answered  questions={answeredQuestions} userId={userId}/>);
+        case 'unAnswered':
+            return (<Unanswered  questions={UnAnsweredQuestions} userId={userId}/>);
+        case 'leaderBoard':
+            return (<Leaderboard />);
+        case 'addQuestion':
+            return (<Addquestion/>);
+        default:
+            console.log(currentTab);
+    }
+}
+
+
 function Userpage(props){
 
     const userId=props.match.params.userId;
     const {users,questions,authUser}=props;
+
+    const[currentTab,setTab]=useState('answered');
 
     if(authUser === userId){
         const questionsIds=Object.keys(questions);
@@ -34,16 +53,13 @@ function Userpage(props){
                <Userbar userId={userId}/>
                <div className='nav-div'>
                       <div className='nav-bar' >
-                          <div className='nav-item'> <button className='btn btn-outline-primary'> Answered </button></div>
-                          <div className='nav-item'>  <button  className='btn btn-outline-primary'> UnAnswered </button></div>
-                          <div className='nav-item'>   <button  className='btn btn-outline-primary'> Leaderboard </button></div> 
-                          <div className='nav-item'>   <button  className='btn btn-outline-primary'> Add Question </button></div>
+                          <div className='nav-item'> <button className='btn btn-outline-primary' onClick={()=>setTab('answered')}> Answered </button></div>
+                          <div className='nav-item'>  <button  className='btn btn-outline-primary' onClick={()=>setTab('unAnswered')}> Unanswered </button></div>
+                          <div className='nav-item'>   <button  className='btn btn-outline-primary' onClick={()=>setTab('leaderBoard')}> Leaderboard </button></div> 
+                          <div className='nav-item'>   <button  className='btn btn-outline-primary' onClick={()=>setTab('addQuestion')}> Add Question </button></div>
                       </div>
                       <div>
-                        <Answered  questions={answeredQuestions} userId={userId}/>
-                        <Unanswered  questions={UnAnsweredQuestions} userId={userId}/>
-                        <Leaderboard />
-                         <Addquestion/>
+                       { showCurrentTab(currentTab,userId,UnAnsweredQuestions,answeredQuestions) }
                       </div>
                </div> 
             </div>

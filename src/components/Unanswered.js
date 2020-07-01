@@ -11,7 +11,7 @@ function Unanswered(props){
     const {questions,userId,users}=props;
     return(
     <div className='questions-container'>
-          <h4 className='tab-name'>UnAnswered</h4>
+          <h4 className='tab-name'>Unanswered</h4>
           {questions.map((q)=>(    
             <li key={q.id}>       
                 <Link to={`${userId}/${q.id}`} >

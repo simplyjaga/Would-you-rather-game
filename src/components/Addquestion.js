@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom';
 import { addQuestionToStoreAndServer } from '../store/combinedActions';
 
 class Addquestion extends Component{
@@ -36,7 +35,6 @@ class Addquestion extends Component{
     }
 
     render(){
-        const {authUser}=this.props;
         return(
         <div className='add-question-container'>
           <h4 className='tab-name'>Addquestion</h4>
@@ -46,7 +44,7 @@ class Addquestion extends Component{
             <label htmlFor="Option Two">Option B</label>
             <textarea className="form-control" value={this.state.optionTwo} onChange={this.setOptionTwo} id="Option Two" rows="2"></textarea>
           </div>
-          <button className='btn  btn-success' onClick={this.addQuestion}><Link className='submit-btn' to={`/${authUser}`}>Submit</Link></button>
+          <button className='btn  btn-success' onClick={this.addQuestion}>Submit</button>
         </div> 
         );
     }
