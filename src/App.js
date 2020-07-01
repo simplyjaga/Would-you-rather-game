@@ -18,11 +18,13 @@ import './App.css';
 
   render(){
      return (
-          <Switch>
-          <Route exact path ='/' component={Login}/>
-          <Route exact path ='/:userId' component={Userpage}/>
-          <Route exact path ='/:userId/:questionId' component={Questionpage} />
-          </Switch>
+         <div>
+            <Switch>
+            <Route exact path ='/' component={Login}/>
+            <Route exact path ='/:userId' component={Userpage}/>
+            <Route exact path ='/:userId/:questionId' component={Questionpage} />
+            </Switch>
+         </div>
       );
   }
 }

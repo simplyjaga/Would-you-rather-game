@@ -1,5 +1,6 @@
 import * as API from '../_DATA';
 import produce from "immer";
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
 
 // action types
 const ADD_ANSWER='addAnswerToUsers';
@@ -30,9 +31,11 @@ export const addInitialDataToUsers=(users)=>({
 
 export const getUsers=()=>{
      return (dispatch)=>{
+          dispatch(showLoading());
           return API._getUsers()
                 .then((res)=>{
                     dispatch(addInitialDataToUsers(res));
+                    dispatch(hideLoading());
                 })
      }
 }
